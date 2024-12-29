@@ -8,6 +8,58 @@ app.use(cors())
 
 
 
+app.get("/api" , (req,res) => {
+  const user = [
+    {
+      name:"mohammed",
+    },
+    {
+      name:"ahmed",
+    }
+  ]
+  res.status(200).json({status:"success" , data:user})
+})
+
+app.get("/items" , (req,res) => {
+  const categories = [
+    { 
+      id: "1fgffghh", 
+      name: "Electronics", 
+      image: "https://www.svgrepo.com/show/530571/conversation.svg" 
+    },
+    { 
+      id: "2", 
+      name: "Fashion", 
+      image: "https://www.svgrepo.com/show/530571/conversation.svg" 
+    },
+    { 
+      id: "3", 
+      name: "Home & Garden", 
+      image: "https://www.svgrepo.com/show/530571/conversation.svg" 
+    },
+    { 
+      id: "4", 
+      name: "Sports", 
+      image: "https://www.svgrepo.com/show/530571/conversation.svg" 
+    },
+    { 
+      id: "100", 
+      name: "Toys & Games", 
+      image: "https://image.similarpng.com/very-thumbnail/2020/05/Icon-WhatsApp-PNG.png" 
+    },
+  ];
+  
+  
+  const items = [
+    { id: 1, name: "Item 1", price: 10.99 },
+    { id: 2, name: "Item 2", price: 9.99 },
+    { id: 3, name: "Item 3", price: 12.99 }
+  ];
+  
+  res.status(200).json({status:"success" , items:items , categories: categories})
+})
+
+
 app.post("/paynow", async (req, res) => {
     const URL = " https://pgw.almadar.ly/api/Validate"
     const Msisdn = "918980076";
@@ -51,6 +103,6 @@ app.post("/paynow", async (req, res) => {
   
   
   
-  app.listen(3000 , () => {
+  app.listen(2001 , () => {
     console.log("run")
   })
